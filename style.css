@@ -1,0 +1,65 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 290px;
+    background-color: black;
+}
+
+.contenedor {
+    position: relative;
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+    background-image: url('fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: transform 0.5s ease;
+}
+
+.imagen::before,
+.imagen::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-image: inherit;
+    background-size: cover;
+    transition: transform 0.5s ease;
+}
+
+.imagen::before {
+    left: 0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    
+    
+}
+
+.imagen::after {
+    right: 0;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+   
+    
+}
+
+.imagen:hover {
+    transform: scale(1.1);
+   
+   
+   
+}
+
+.imagen:hover::before {
+    transform: translateX(-100%);
+  
+}
+
+.imagen:hover::after {
+    transform: translateX(100%);
+  
+}
